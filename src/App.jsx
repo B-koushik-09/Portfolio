@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
-import profileImg from "./assets/photo.svg"; // your flipped SVG
-import eduImg from "./assets/edu.svg"; 
+import profileImg from "./assets/photo.svg";
+import eduImg from "./assets/edu.svg";
 import certificateIcon from "./assets/certificate.svg";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -49,25 +49,42 @@ const projectsData = [
   },
 ];
 
- 
+// Header Component with Responsive Menu
+const Header = ({ scrollTo }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-// Header
-const Header = ({ scrollTo }) => (
-  <header className="header">
-    <div className="header-content">
-      <h2 className="logo">&lt; B Koushik /&gt;</h2>
-      <nav>
-        {["Home", "Education", "Skills", "Projects", "Certificates","Contact"].map(
-          (sec) => (
-            <button key={sec} onClick={() => scrollTo(sec.toLowerCase())}>
-              {sec}
-            </button>
-          )
-        )}
-      </nav>
-    </div>
-  </header>
-);
+  const handleMenuToggle = () => setMenuOpen(!menuOpen);
+  const handleNavClick = (section) => {
+    scrollTo(section.toLowerCase());
+    setMenuOpen(false);
+  };
+
+  return (
+    <header className="header">
+      <div className="header-content">
+        <h2 className="logo">&lt; B Koushik /&gt;</h2>
+
+        {/* Hamburger Icon */}
+        <div className="menu-icon" onClick={handleMenuToggle}>
+          <div className={menuOpen ? "bar open" : "bar"}></div>
+          <div className={menuOpen ? "bar open" : "bar"}></div>
+          <div className={menuOpen ? "bar open" : "bar"}></div>
+        </div>
+
+        {/* Navigation */}
+        <nav className={menuOpen ? "nav-links open" : "nav-links"}>
+          {["Home", "Education", "Skills", "Projects", "Certificates", "Contact"].map(
+            (sec) => (
+              <button key={sec} onClick={() => handleNavClick(sec)}>
+                {sec}
+              </button>
+            )
+          )}
+        </nav>
+      </div>
+    </header>
+  );
+};
 
 // Hero Section
 const Hero = ({ scrollToSection }) => (
@@ -77,7 +94,9 @@ const Hero = ({ scrollToSection }) => (
         <h2>Hi, I'm Koushik</h2>
         <h1>Transforming ideas into fast, accessible web apps.</h1>
         <p>
-          Frontend developer using React & Vite — building responsive, maintainable interfaces and shipping production-ready features. Seeking internship/full-time roles in software development.
+          Frontend developer using React & Vite — building responsive, maintainable
+          interfaces and shipping production-ready features. Seeking internship/full-time
+          roles in software development.
         </p>
         <div className="hero-buttons">
           <button className="btn" onClick={() => scrollToSection("projects")}>
@@ -94,8 +113,6 @@ const Hero = ({ scrollToSection }) => (
     </div>
   </section>
 );
-
- 
 
 // Education Section
 const Education = () => (
@@ -170,7 +187,7 @@ const certificatesData = [
     title: "Java Fundamentals",
     issuer: "Infosys Springboard",
     year: "2024",
-    link: "https://drive.google.com/file/d/1VNmuyqAiB3hP-smo0nAjBrSPVshVS7ty/view?usp=drive_link",
+    link: "https://drive.google.com/file/d/1VNmuyqAiB3hP-smo0nAjBrSPVshVS7ty/view",
   },
   {
     title: "Programming Using C++",
@@ -179,7 +196,7 @@ const certificatesData = [
     link: "https://drive.google.com/file/d/18m_rckBjIuAmSbZ45agoOJjGUmlJPxSB/view",
   },
   {
-    title: "Google Cloud Computing Foundations Certificate!",
+    title: "Google Cloud Computing Foundations Certificate",
     issuer: "Google Cloud",
     year: "2025",
     link: "/gcloud.png",
@@ -189,30 +206,21 @@ const certificatesData = [
 const Certificates = () => (
   <section id="certificates" className="certificates">
     <div className="section-content certificates-content">
-      {/* Left SVG */}
       <div className="certificates-left" data-aos="fade-right">
-        <img
-          src={certificateIcon}
-          alt="Certificates Icon"
-          className="certificates-section-icon"
-        />
+        <img src={certificateIcon} alt="Certificates Icon" className="certificates-section-icon" />
       </div>
 
-      {/* Right Cards */}
       <div className="certificates-right" data-aos="fade-left">
         <h2>Certificates</h2>
         <div className="certificates-grid">
           {certificatesData.map((cert, index) => (
             <div key={index} className="certificate-card" data-aos="fade-up">
               <h3>{cert.title}</h3>
-              <p>{cert.issuer} | {cert.year}</p>
+              <p>
+                {cert.issuer} | {cert.year}
+              </p>
               {cert.link && (
-                <a
-                  href={cert.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn"
-                >
+                <a href={cert.link} target="_blank" rel="noopener noreferrer" className="btn">
                   View Certificate
                 </a>
               )}
@@ -249,11 +257,7 @@ const Contact = () => (
       </div>
       <div className="contact-card">
         <span>💻</span>
-        <a
-          href="https://github.com/B-koushik-09"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://github.com/B-koushik-09" target="_blank" rel="noopener noreferrer">
           GitHub
         </a>
       </div>
@@ -286,7 +290,6 @@ const App = () => {
       <Header scrollTo={scrollToSection} />
       <main>
         <Hero scrollToSection={scrollToSection} />
-        
         <Education />
         <Skills />
         <Projects />
@@ -299,4 +302,3 @@ const App = () => {
 };
 
 export default App;
-
