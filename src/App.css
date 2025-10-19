@@ -10,12 +10,7 @@ body, html, #root, .app {
   background-color: #1a1a1a;
   width: 100%;
 }
-/* ---------- Universal Reset ---------- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+ 
 
 /* ---------- Responsive Layout ---------- */
 body {
@@ -29,11 +24,11 @@ section {
   padding: 60px 10%;
 }
 
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   section {
     padding: 50px 6%;
   }
-}
+} */
 
 @media (max-width: 768px) {
   section {
@@ -337,7 +332,7 @@ footer {
   border-radius: 15px;
   padding: 20px;
   flex: 1 1 200px;
-  max-width: 220px;
+  max-width: 100vh;
   text-align: center;
   box-shadow: 0 6px 15px rgba(0,0,0,0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
