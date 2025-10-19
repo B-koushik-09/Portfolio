@@ -1,16 +1,78 @@
-# React + Vite
+# 🌟 Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully responsive and animated **Portfolio Website** built using **React.js**, showcasing personal projects, skills, education, and achievements.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## React Compiler
+🔗 [Visit My Portfolio](https://koushik-portfolio-09.vercel.app/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧠 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🎨 **Modern UI Design** – Smooth animations using AOS and responsive layout.
+- 🧍‍♂️ **Hero Section** – Introduction with a dynamic flip SVG and social links.
+- 🎓 **Education Section** – Academic background with SVG illustrations.
+- 💼 **Projects Section** – Showcases key projects with descriptions
+- 🏅 **Certificates Section** – Displays certifications with clickable links.
+- 📱 **Responsive Design** – Fully optimized for mobile, tablet, and desktop.
+
+---
+
+## 🧰 Tech Stack
+
+| Frontend | Deployment | Tools |
+|-----------|-------------|-------|
+| React.js  | Vercel      | Git, GitHub |
+| CSS3 (Flexbox, Grid) | - | VS Code |
+| AOS (Animate on Scroll) | - | - |
+
+---
+
+## 📁 Folder Structure
+
+Portfolio/
+│
+├── public/
+│ ├── index.html
+│ ├── assets/
+│ │ ├── hero.svg
+│ │ ├── education.svg
+│ │ ├── certificate.svg
+│ │ └── ...other images
+│
+├── src/
+│ ├── App.jsx
+│ ├── App.css
+│ ├── index.js
+│ 
+│
+├── package.json
+├── README.md
+
+
+---
+
+## ✨ Sections in the Portfolio
+
+### 🏠 **Header & Hero**
+- Smooth navigation with animated entry.
+- Introduction about who I am and what I do.
+
+
+### 🎓 **Education**
+- Academic journey displayed using elegant cards and SVG illustration.
+
+### 🏅 **Certificates**
+- Certificates displayed as cards with **View Certificate** buttons linked to Google Drive or public images.
+- Dynamic, grid-based design.
+- SVG icon on the left
+
+### 📱 **Responsive Design**
+- Perfectly optimized for mobile, tablet, and desktop.
+- Clean layout maintained using Flexbox and media queries.
+
+---
+
