@@ -31,26 +31,6 @@ A fully responsive and animated **Portfolio Website** built using **React.js**, 
 
 ---
 
-## 📁 Folder Structure
-
-Portfolio/
-│
-├── public/
-│ ├── index.html
-│ ├── assets/
-│ │ ├── hero.svg
-│ │ ├── education.svg
-│ │ ├── certificate.svg
-│ │ └── ...other images
-│
-├── src/
-│ ├── App.jsx
-│ ├── App.css
-│ ├── index.js
-│ 
-│
-├── package.json
-├── README.md
 
 
 ---
