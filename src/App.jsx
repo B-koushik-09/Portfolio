@@ -9,37 +9,85 @@ import "aos/dist/aos.css";
 // Skills Data grouped by categories
 const skillsData = {
   "Programming Languages": ["C", "C++", "Java", "Python", "JavaScript"],
-  "Web Technologies": ["HTML/CSS", "React", "Bootstrap", "REST APIs"],
-  "Database & Tools": ["SQL/PL-SQL"],
-  "Concepts & Specializations": [
-    "Data Structures",
-    "Front-End Development",
-    "OOPS",
-    "Operating System",
-    "Software Engineering",
+
+  "Web Technologies": [
+    "HTML/CSS",
+    "React.js",
+    "Next.js",
+    "Node.js",
+    "Express.js",
+    "Flask",
+    "MongoDB",
+    "REST APIs",
+    "Bootstrap"
   ],
-  "Soft Skills": ["Quick Learning", "Time Management", "Risk Management"],
+
+  "Databases & Tools": [
+    "MySQL",
+    "Git",
+    "GitHub",
+    "VS Code"
+  ],
+
+  "AI & ML": [
+    "CNN",
+    "Transfer Learning",
+    "Retrieval-Augmented Generation (RAG)",
+    "LLM Integration"
+  ],
+
+  "Core Concepts": [
+    "Data Structures & Algorithms",
+    "OOPs",
+    "Operating Systems",
+    "Software Engineering"
+  ],
+
+  "Soft Skills": [
+    "Quick Learner",
+    "Time Management",
+    "Problem Solving"
+  ]
 };
 
 // Projects Data
 const projectsData = [
   {
-    title: "Internship Platform",
+    title: "AI RAG Chatbot (Ongoing)",
     description:
-      "Responsive React web app for managing internship offers, applications, coding platforms, and resources.",
-    technologies: ["HTML", "CSS", "JavaScript", "React"],
+      "Built a context-aware chatbot using a Retrieval-Augmented Generation pipeline with web scraping, embeddings, FAISS vector search, and LLM-based response generation to reduce hallucinations.",
+    technologies: ["Python", "FAISS", "Ollama", "RAG", "LLM"],
+    
   },
   {
-    title: "Canteen Management System",
+    title: "Internship Platform",
     description:
-      "Database-driven app to manage orders, inventory, billing, and reporting efficiently.",
-    technologies: ["MySQL", "HTML", "CSS", "JavaScript"],
+      "Developed a full-stack MERN internship portal with authentication, profile management, applications, resume builder, subscription module, Razorpay integration, and RESTful APIs.",
+    technologies: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Razorpay",
+      "REST APIs",
+    ],
+     github:"https://github.com/B-koushik-09/internarea",
   },
+  {
+    title: "Leaf Disease Detection",
+    description:
+      "Trained a CNN-based image classification model using transfer learning with preprocessing and augmentation, and integrated predictions with a simple frontend for image upload.",
+    technologies: ["Python", "CNN", "Transfer Learning", "TensorFlow/Keras"],
+     github:"https://github.com/B-koushik-09/agritech",
+  },
+
+
   {
     title: "E-Waste Recycling Locator",
     description:
       "Connects users with certified e-waste centers with scheduled drop-off slots for efficient disposal.",
     technologies: ["HTML", "CSS", "JavaScript"],
+     github:"https://github.com/B-koushik-09/E-waste-recyclers",
   },
   {
     title: "Weather Forecast Website",
@@ -102,7 +150,7 @@ const Hero = ({ scrollToSection }) => (
           <button className="btn" onClick={() => scrollToSection("projects")}>
             View Projects
           </button>
-          <a href="/koushik-resume.pdf" className="btn" download>
+          <a href="/tpresume.pdf" className="btn" download>
             Download Resume
           </a>
         </div>
@@ -174,6 +222,18 @@ const Projects = () => (
                 <span key={tech}>{tech}</span>
               ))}
             </div>
+            {project.github ? (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="github-btn"
+              >
+                GitHub →
+              </a>
+            ) : (
+              <span className="github-btn github-btn--na">No Repo</span>
+            )}
           </div>
         ))}
       </div>
@@ -184,11 +244,24 @@ const Projects = () => (
 // Certificates Section
 const certificatesData = [
   {
-    title: "Java Fundamentals",
-    issuer: "Infosys Springboard",
-    year: "2024",
-    link: "https://drive.google.com/file/d/1VNmuyqAiB3hP-smo0nAjBrSPVshVS7ty/view",
+    title: "Microsoft Azure Internship – Emerging Technologies",
+    issuer: "AICTE & Microsoft Elevate",
+    year: "2026",
+    link: "https://drive.google.com/file/d/1NWLdw1UmAX2ZGcJBKkU8f1Rmjnxnf79Z/view?usp=sharing",
   },
+  {
+    title: "Artificial Intelligence & Machine Learning – Course Completion",
+    issuer: "AICTE & Microsoft Elevate",
+    year: "2026",
+    link: "https://drive.google.com/file/d/1V4SK9zcJuMX9BQn9ByLIQWglvuK3geS1/view?usp=sharing",
+  },
+  {
+    title: "Diamond Coder – Data Structures & Algorithms",
+    issuer: "Smart Interviews",
+    year: "2025",
+    link: "https://smartinterviews.in/certificate/7a8d4c79",
+  },
+
   {
     title: "Programming Using C++",
     issuer: "Infosys Springboard",
@@ -196,10 +269,10 @@ const certificatesData = [
     link: "https://drive.google.com/file/d/18m_rckBjIuAmSbZ45agoOJjGUmlJPxSB/view",
   },
   {
-    title: "Google Cloud Computing Foundations Certificate",
-    issuer: "Google Cloud",
-    year: "2025",
-    link: "/gcloud.png",
+    title: "Java Fundamentals",
+    issuer: "Infosys Springboard",
+    year: "2024",
+    link: "https://drive.google.com/file/d/1VNmuyqAiB3hP-smo0nAjBrSPVshVS7ty/view",
   },
 ];
 
