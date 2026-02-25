@@ -140,9 +140,7 @@ const Hero = ({ scrollToSection }) => (
         <h2>Hi, I'm Koushik</h2>
         <h1>Transforming ideas into fast, accessible web apps.</h1>
         <p>
-          Frontend developer using React & Vite — building responsive, maintainable
-          interfaces and shipping production-ready features. Seeking internship/full-time
-          roles in software development.
+          DSA-focused Computer Science student building responsive web applications using React & Vite. Skilled in REST API integration and familiar with Node.js for basic backend development. Focused on writing clean, scalable, and maintainable code.
         </p>
         <div className="hero-buttons">
           <button className="btn" onClick={() => scrollToSection("projects")}>
