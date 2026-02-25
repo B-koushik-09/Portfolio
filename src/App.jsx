@@ -15,8 +15,6 @@ const skillsData = {
     "React.js",
     "Next.js",
     "Node.js",
-    "Express.js",
-    "Flask",
     "MongoDB",
     "REST APIs",
     "Bootstrap"
