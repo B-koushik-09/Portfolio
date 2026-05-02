@@ -1,164 +1,86 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Send, CheckCircle } from 'lucide-react';
+import { Mail, Phone, ExternalLink } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState('idle'); // idle, sending, success
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setStatus('sending');
-    
-    // Simulate API call
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
-      setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-      
-      // Reset status after a few seconds
-      setTimeout(() => setStatus('idle'), 5000);
-    }, 1500);
-  };
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const contactDetails = [
+    {
+      icon: <Mail className="w-8 h-8 text-accent-neon-blue" />,
+      title: "Email",
+      value: "koushikballa09@gmail.com",
+      link: "mailto:koushikballa09@gmail.com",
+      color: "hover:border-accent-neon-blue/50"
+    },
+    {
+      icon: <Phone className="w-8 h-8 text-accent-neon-purple" />,
+      title: "Phone",
+      value: "+91 9392858341",
+      link: "tel:+919392858341",
+      color: "hover:border-accent-neon-purple/50"
+    },
+    {
+      icon: <FaGithub className="w-8 h-8 text-white" />,
+      title: "GitHub",
+      value: "B-koushik-09",
+      link: "https://github.com/B-koushik-09",
+      color: "hover:border-white/50"
+    },
+    {
+      icon: <FaLinkedin className="w-8 h-8 text-[#0077b5]" />,
+      title: "LinkedIn",
+      value: "koushik-balla",
+      link: "https://www.linkedin.com/in/koushik-balla-46799331b/",
+      color: "hover:border-[#0077b5]/50"
+    }
+  ];
 
   return (
-    <section id="contact" className="py-24 relative bg-bg-secondary/50">
+    <section id="contact" className="pt-24 pb-12 relative bg-bg-secondary/30">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className="text-center mb-16"
           data-aos="fade-up"
         >
           <h2 className="text-4xl md:text-5xl font-bold font-display mb-4">
-            Get In <span className="text-gradient">Touch</span>
+            Let's <span className="text-gradient">Connect</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-accent-neon-blue to-accent-neon-purple mx-auto rounded-full"></div>
           <p className="mt-6 text-text-secondary max-w-2xl mx-auto">
-            Whether you have a question, a project idea, or just want to say hi, I'll try my best to get back to you!
+            I am always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-            data-aos="fade-right"
-          >
-            <a href="mailto:koushikballa09@gmail.com" className="flex items-center space-x-6 glass-panel p-6 rounded-2xl hover:border-accent-neon-blue/50 transition-all duration-300 group">
-              <div className="w-14 h-14 bg-white/5 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-accent-neon-blue/20 transition-all duration-300">
-                <Mail className="w-6 h-6 text-accent-neon-blue" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {contactDetails.map((detail, idx) => (
+            <motion.a
+              key={idx}
+              href={detail.link}
+              target="_blank"
+              rel="noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              whileHover={{ y: -10, scale: 1.02 }}
+              className={`glass-panel p-8 rounded-3xl border border-white/5 transition-all duration-300 flex flex-col items-center text-center group ${detail.color}`}
+              data-aos="zoom-in"
+              data-aos-delay={idx * 100}
+            >
+              <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                {detail.icon}
               </div>
-              <div>
-                <h3 className="text-sm text-text-secondary uppercase tracking-wider mb-1">Email</h3>
-                <p className="text-lg font-medium group-hover:text-accent-neon-blue transition-colors">koushikballa09@gmail.com</p>
+              <h3 className="text-sm text-text-secondary uppercase tracking-widest mb-2">{detail.title}</h3>
+              <p className="text-lg font-bold text-white mb-4 break-all">{detail.value}</p>
+              <div className="mt-auto flex items-center space-x-2 text-accent-neon-blue font-bold text-xs uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity">
+                <span>Connect Now</span>
+                <ExternalLink className="w-3 h-3" />
               </div>
-            </a>
-
-            <a href="tel:+919392858341" className="flex items-center space-x-6 glass-panel p-6 rounded-2xl hover:border-accent-neon-purple/50 transition-all duration-300 group">
-              <div className="w-14 h-14 bg-white/5 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-accent-neon-purple/20 transition-all duration-300">
-                <Phone className="w-6 h-6 text-accent-neon-purple" />
-              </div>
-              <div>
-                <h3 className="text-sm text-text-secondary uppercase tracking-wider mb-1">Phone</h3>
-                <p className="text-lg font-medium group-hover:text-accent-neon-purple transition-colors">+91 9392858341</p>
-              </div>
-            </a>
-
-            <div className="flex space-x-4 pt-4">
-              <a href="https://github.com/B-koushik-09" target="_blank" rel="noreferrer" className="w-14 h-14 glass-panel rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 group">
-                <FaGithub className="w-6 h-6" />
-              </a>
-              <a href="https://linkedin.com/in/koushik-balla" target="_blank" rel="noreferrer" className="w-14 h-14 glass-panel rounded-full flex items-center justify-center hover:bg-[#0077b5] transition-all duration-300 group hover:border-[#0077b5]">
-                <FaLinkedin className="w-6 h-6" />
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="glass-panel p-8 rounded-3xl border border-white/10 relative overflow-hidden"
-            data-aos="fade-left"
-          >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-accent-neon-purple/10 rounded-full blur-[80px] pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent-neon-blue/10 rounded-full blur-[80px] pointer-events-none"></div>
-
-            {status === 'success' ? (
-              <div className="relative z-10 h-full flex flex-col items-center justify-center space-y-4 py-12">
-                <CheckCircle className="w-16 h-16 text-green-500 animate-bounce" />
-                <h3 className="text-2xl font-bold text-white">Message Sent!</h3>
-                <p className="text-text-secondary text-center">Thanks for reaching out. I'll get back to you soon.</p>
-                <button 
-                  onClick={() => setStatus('idle')}
-                  className="mt-4 text-accent-neon-blue hover:underline"
-                >
-                  Send another message
-                </button>
-              </div>
-            ) : (
-              <form className="relative z-10 space-y-6" onSubmit={handleSubmit}>
-                <div>
-                  <label className="block text-sm font-medium text-text-secondary mb-2">Name</label>
-                  <input 
-                    type="text" 
-                    name="name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent-neon-blue/50 focus:ring-1 focus:ring-accent-neon-blue/50 transition-all"
-                    placeholder="John Doe"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-text-secondary mb-2">Email</label>
-                  <input 
-                    type="email" 
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent-neon-purple/50 focus:ring-1 focus:ring-accent-neon-purple/50 transition-all"
-                    placeholder="john@example.com"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-text-secondary mb-2">Message</label>
-                  <textarea 
-                    rows="4"
-                    name="message"
-                    required
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-pink-500/50 focus:ring-1 focus:ring-pink-500/50 transition-all resize-none"
-                    placeholder="Your message here..."
-                  ></textarea>
-                </div>
-                <button 
-                  type="submit"
-                  disabled={status === 'sending'}
-                  className={`w-full py-4 rounded-xl bg-gradient-to-r from-accent-neon-blue to-accent-neon-purple text-white font-bold flex items-center justify-center space-x-2 hover:shadow-[0_0_20px_rgba(138,43,226,0.4)] transition-all duration-300 transform hover:-translate-y-1 \${status === 'sending' ? 'opacity-70 cursor-not-allowed' : ''}`}
-                >
-                  <span>{status === 'sending' ? 'Sending...' : 'Send Message'}</span>
-                  <Send className="w-5 h-5" />
-                </button>
-              </form>
-            )}
-          </motion.div>
+            </motion.a>
+          ))}
         </div>
       </div>
     </section>

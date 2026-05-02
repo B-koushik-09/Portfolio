@@ -38,7 +38,7 @@ const Navbar = ({ scrollToSection }) => {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 \${scrolled ? 'py-6 bg-bg-primary/80 backdrop-blur-xl border-b border-white/10 shadow-2xl' : 'py-10 bg-transparent'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-500 \${scrolled ? 'py-4 bg-bg-primary/80 backdrop-blur-xl border-b border-white/10 shadow-2xl' : 'py-7 bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
