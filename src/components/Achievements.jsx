@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Star, Target, Code } from 'lucide-react';
+import { Trophy, Star, Target, Code, ExternalLink } from 'lucide-react';
 
 const Achievements = () => {
   const achievements = [
@@ -8,11 +8,12 @@ const Achievements = () => {
       icon: <Trophy className="w-6 h-6 text-yellow-400" />,
       title: "Diamond Coder",
       desc: "Awarded by Smart Interviews for exceptional performance in Data Structures and Algorithms.",
+      link: "https://smartinterviews.in/certificate/7a8d4c79",
       delay: 0
     },
     {
       icon: <Target className="w-6 h-6 text-accent-neon-blue" />,
-      title: "Global Rank 610 / 53,931",
+      title: "Global Rank 644 / 53,931",
       desc: "Achieved top 1.1% in global competitive programming contest.",
       delay: 0.1
     },
@@ -58,15 +59,27 @@ const Achievements = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: item.delay }}
               whileHover={{ y: -5, scale: 1.02 }}
-              className="glass-panel p-6 rounded-2xl border border-white/5 text-center group hover:border-accent-neon-blue/30 transition-all duration-300"
+              className="glass-panel p-6 rounded-2xl border border-white/5 text-center group hover:border-accent-neon-blue/30 transition-all duration-300 flex flex-col items-center"
               data-aos="flip-up"
               data-aos-delay={idx * 100}
             >
-              <div className="w-16 h-16 mx-auto bg-white/5 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(0,240,255,0.2)] transition-all duration-300">
+              <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(0,240,255,0.2)] transition-all duration-300">
                 {item.icon}
               </div>
               <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-              <p className="text-text-secondary text-sm leading-relaxed">{item.desc}</p>
+              <p className="text-text-secondary text-sm leading-relaxed mb-4">{item.desc}</p>
+              
+              {item.link && (
+                <a 
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto inline-flex items-center space-x-2 text-xs font-bold text-accent-neon-blue hover:text-white transition-colors duration-300 group/link"
+                >
+                  <span>ACCESS CERTIFICATE</span>
+                  <ExternalLink className="w-3 h-3 transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+                </a>
+              )}
             </motion.div>
           ))}
         </div>
