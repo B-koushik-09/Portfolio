@@ -45,7 +45,7 @@ const About = () => {
             className="space-y-6 text-center lg:text-left"
             data-aos="fade-right"
           >
-            <p className="text-lg md:text-xl text-text-secondary leading-relaxed">
+          <p className="text-lg md:text-xl text-text-secondary leading-relaxed">
               I am a motivated Computer Science and Engineering student passionate about building scalable and impactful software solutions. My journey bridges the gap between traditional software engineering and modern AI capabilities.
             </p>
             <p className="text-base md:text-lg text-text-secondary leading-relaxed">
